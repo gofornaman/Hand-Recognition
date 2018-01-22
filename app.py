@@ -1,3 +1,4 @@
+#namandoshi 20 Jan 2018
 import cv2
 import numpy as np
 import math
@@ -8,7 +9,7 @@ while(cap.isOpened()):
     # read image
     ret, img = cap.read()
 
-    # get hand data from the rectangle sub window on the screen
+    # get hand data from the rectangle
     cv2.rectangle(img, (300,300), (100,100), (0,255,0),0)
     crop_img = img[100:300, 100:300]
 
@@ -19,7 +20,7 @@ while(cap.isOpened()):
     value = (35, 35)
     blurred = cv2.GaussianBlur(grey, value, 0)
 
-    # thresholdin: Otsu's Binarization method
+
     _, thresh1 = cv2.threshold(blurred, 127, 255,
                                cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
 
